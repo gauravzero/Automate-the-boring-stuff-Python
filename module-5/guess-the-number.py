@@ -15,17 +15,21 @@ print('Hi ' + name + ', lets play a game. I\'ll choose a number between'
 answer = random.randint(0,20)
 guesses = 0
 while(guesses < 6):
-    guesses = guesses + 1
     print('Take a Guess')
     userGuess = input()
-    intUserGuess = int(userGuess)
-    if intUserGuess == answer:
-        print('Thats right! You got it in '+ str(guesses) + ' times!')
-        break
-    elif intUserGuess < answer:
-        print('Its higher')
-    elif intUserGuess > answer:
-        print('Its lower')
+    try:
+        intUserGuess = int(userGuess)
+        guesses = guesses + 1
+        if intUserGuess == answer:
+            print('Thats right! You got it in '+ str(guesses) + ' times!')
+            break
+        elif intUserGuess < answer:
+            print('Its higher')
+        elif intUserGuess > answer:
+            print('Its lower')
+    except ValueError:
+        print('You didnt enter a number! Try again but we will not count that last trial')
+        continue
 if guesses == 6 :
     print('Whoops, you took too many guesses! The number was ' + str(answer))
 else :

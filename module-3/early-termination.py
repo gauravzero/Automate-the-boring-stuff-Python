@@ -1,4 +1,4 @@
-# sometimes you want programt o end early
+# sometimes you want programt to end early
 # sys.exit() terminates the program
 
 import sys
